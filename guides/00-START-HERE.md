@@ -168,22 +168,24 @@ This guide is organized into 10 sequential steps. Each step must be completed be
 ---
 
 
-## Progress Tracking Checklist
+## Track Your Progress
 
-Mark each step as complete:
+As you complete each step, check it off by replacing `[ ]` with `[x]`:
 
 ```
-[ ] Step 1 - Architecture Overview
-[ ] Step 2 - AWS Account Setup
-[ ] Step 3 - Local Environment Setup
-[ ] Step 4 - Terraform Deployment
-[ ] Step 5 - Kubernetes Initialization
-[ ] Step 6 - Jenkins Configuration
-[ ] Step 7 - SonarQube Configuration
-[ ] Step 8 - Nexus Configuration
-[ ] Step 9 - CI/CD Pipeline Creation
-[ ] Step 10 - Verification and Testing
+[ ] Step 1: Architecture Overview
+[ ] Step 2: AWS Account Setup
+[ ] Step 3: Local Development Setup
+[ ] Step 4: Deploy Infrastructure with Terraform
+[ ] Step 5: Initialize Kubernetes Cluster
+[ ] Step 6: Configure Jenkins
+[ ] Step 7: Configure SonarQube
+[ ] Step 8: Configure Nexus
+[ ] Step 9: Create and Run Pipeline
+[ ] Step 10: Verification and Testing
 ```
+
+**Keep this checklist in your notes or mark it in the file itself!**
 
 
 ---
