@@ -1,0 +1,107 @@
+# EXAMPLE Terraform Configuration
+# Copy this file to terraform.auto.tfvars and customize with your values
+
+# AWS Configuration
+aws_config = {
+  region = "us-east-1"
+}
+
+# AMI Configuration
+ami_config = {
+  id = "ami-0360c520857e3138f"  # Ubuntu 24.04 LTS - verify this is correct for your region
+}
+
+# SSH Configuration
+# ⚠️ IMPORTANT: Update these values!
+ssh_config = {
+  key_name     = "k8s-pipeline-key"  # Your AWS EC2 key pair name
+  allowed_cidr = ["YOUR_IP/32"]      # Replace with your IP: curl ifconfig.me
+}
+
+# Instance Types - Optimized for cost while maintaining functionality
+instance_types = {
+  master     = "t3.medium"  # 2 vCPU, 4 GB RAM - better than t2.medium, similar cost
+  worker     = "t3.medium"  # 2 vCPU, 4 GB RAM
+  monitoring = "t3.medium"  # 2 vCPU, 4 GB RAM
+}
+
+# Project Configuration
+project_config = {
+  name        = "ultimate-cicd-devops"
+  environment = "dev"
+}
+
+# Cost Optimization - Disable instances you don't need
+# Set to false to disable and save costs
+feature_flags = {
+  enable_monitoring_instance = true   # Prometheus & Grafana (~$50/month)
+  enable_tools_instance      = true   # Nexus & SonarQube (~$50/month)
+  enable_worker_2            = false  # Second K8s worker (~$50/month)
+}
+
+# OIDC Configuration for GitHub Actions
+# This enables passwordless authentication from GitHub Actions to AWS
+# ⚠️ IMPORTANT: Update with your GitHub details!
+oidc_config = {
+  github_org         = "YOUR_GITHUB_USERNAME"  # Your GitHub username
+  github_repo        = "YOUR_REPO_NAME"        # Your repository name
+  enable_github_oidc = true                    # Set to false if not using GitHub Actions yet
+}
+
+# IAM Configuration
+# Enable instance profiles for EC2 instances to access AWS services (ECR, SSM, etc.)
+iam_config = {
+  enable_instance_profiles = true  # Enables IAM roles for EC2 instances (recommended)
+}
+
+# ============================================================================
+# Cost Saving Tips:
+# ============================================================================
+# 
+# Minimal Setup (~$60/month):
+#   enable_worker_2 = false
+#   enable_monitoring_instance = false
+#   enable_tools_instance = false
+#   Result: Just master + 1 worker
+#
+# Medium Setup (~$110/month):
+#   enable_worker_2 = false
+#   enable_monitoring_instance = false
+#   enable_tools_instance = true
+#   Result: Master + 1 worker + tools
+#
+# Full Setup (~$200/month):
+#   All flags set to true
+#   Result: All 5 instances
+#
+# For Learning:
+#   Run `terraform destroy` after each session to avoid costs!
+#   Cost per 4-hour session: ~$0.67 (full setup)
+#
+# ============================================================================
+
+# ============================================================================
+# Setup Instructions:
+# ============================================================================
+# 
+# 1. Copy this file:
+#    cp terraform.auto.tfvars.example terraform.auto.tfvars
+#
+# 2. Update required values:
+#    - ssh_config.key_name (your AWS key pair)
+#    - ssh_config.allowed_cidr (your IP address)
+#    - oidc_config.github_org (your GitHub username)
+#    - oidc_config.github_repo (your repository name)
+#
+# 3. Get your IP address:
+#    curl ifconfig.me
+#
+# 4. Deploy:
+#    terraform init
+#    terraform plan
+#    terraform apply
+#
+# 5. After learning:
+#    terraform destroy
+#
+# ============================================================================

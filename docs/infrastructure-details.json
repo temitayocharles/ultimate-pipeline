@@ -1,0 +1,97 @@
+{
+  "grafana_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://3.88.47.75:3000"
+  },
+  "jenkins_k8s_master_private_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "172.31.21.117"
+  },
+  "jenkins_k8s_master_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "54.224.153.192"
+  },
+  "jenkins_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://54.224.153.192:8080"
+  },
+  "k8s_worker_1_private_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "172.31.22.233"
+  },
+  "k8s_worker_1_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "54.85.191.80"
+  },
+  "k8s_worker_2_private_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "172.31.25.3"
+  },
+  "k8s_worker_2_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "34.228.166.87"
+  },
+  "monitoring_private_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "172.31.16.78"
+  },
+  "monitoring_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "3.88.47.75"
+  },
+  "nexus_sonarqube_private_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "172.31.23.85"
+  },
+  "nexus_sonarqube_public_ip": {
+    "sensitive": false,
+    "type": "string",
+    "value": "98.93.223.228"
+  },
+  "nexus_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://98.93.223.228:8081"
+  },
+  "prometheus_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://3.88.47.75:9090"
+  },
+  "sonarqube_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "http://98.93.223.228:9000"
+  },
+  "ssh_commands": {
+    "sensitive": false,
+    "type": [
+      "object",
+      {
+        "jenkins_k8s_master": "string",
+        "k8s_worker_1": "string",
+        "k8s_worker_2": "string",
+        "monitoring": "string",
+        "nexus_sonarqube": "string"
+      }
+    ],
+    "value": {
+      "jenkins_k8s_master": "ssh -i terraform-offert-letter-key.pem ubuntu@54.224.153.192",
+      "k8s_worker_1": "ssh -i terraform-offert-letter-key.pem ubuntu@54.85.191.80",
+      "k8s_worker_2": "ssh -i terraform-offert-letter-key.pem ubuntu@34.228.166.87",
+      "monitoring": "ssh -i terraform-offert-letter-key.pem ubuntu@3.88.47.75",
+      "nexus_sonarqube": "ssh -i terraform-offert-letter-key.pem ubuntu@98.93.223.228"
+    }
+  }
+}
