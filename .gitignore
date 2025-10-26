@@ -44,3 +44,9 @@ terraform.rc
 
 # Log files
 *.log
+
+# Personal configuration files (keep local, don't push upstream)
+*.personal
+*.personal.*
+BACKEND-SETUP.personal.md
+terraform/backend.tf.personal

@@ -78,7 +78,7 @@ ls -la k8s-pipeline-key.pem
 
 **Expected output:**
 ```
--r--------  1 charlie  staff  1704 Oct 25 10:30 k8s-pipeline-key.pem
+-r--------  1 user  staff  1704 Oct 25 10:30 k8s-pipeline-key.pem
 ```
 
 Note the permissions starting with `-r--------` which means read-only for owner.

@@ -22,21 +22,25 @@
 # IMPORTANT: 
 # - The bucket name must be globally unique across ALL AWS accounts
 # - Suggested naming: terraform-state-<your-name>-<random-string>
-# - Example: terraform-state-charlie-k8s-abc123
+# - Example: terraform-state-alice-k8s-abc123
 # - Share the bucket name and region with your colleagues
+#
+# FOR LOCAL USE:
+# - Copy this file to backend.tf.personal
+# - Configure with your actual bucket name in the .personal file
+# - The .personal file is gitignored and won't be pushed upstream
 
-# Uncomment and configure this block after creating the S3 bucket and DynamoDB table:
-/*
+# Backend configuration - TEMPLATE VERSION
+# Uncomment and configure with your actual S3 bucket and DynamoDB table
 terraform {
-  backend "s3" {
-    bucket         = "YOUR-UNIQUE-BUCKET-NAME"           # REQUIRED: Update this!
-    key            = "ec2-k8s/terraform.tfstate"         # Path within bucket
-    region         = "us-east-1"                          # Must match bucket region
-    encrypt        = true                                 # Encrypt state file
-    dynamodb_table = "terraform-state-lock"              # For state locking
-  }
+  # backend "s3" {
+  #   bucket         = "YOUR-UNIQUE-BUCKET-NAME-HERE"     # Replace with your bucket name
+  #   key            = "ec2-k8s/terraform.tfstate"        # Path within bucket
+  #   region         = "us-east-1"                        # Must match bucket region
+  #   encrypt        = true                               # Encrypt state file
+  #   dynamodb_table = "terraform-state-lock"             # For state locking
+  # }
 }
-*/
 
 # Alternative: Use this for quick local testing (not recommended for team use)
 # Just comment out or delete the S3 backend block above and Terraform will use local state
