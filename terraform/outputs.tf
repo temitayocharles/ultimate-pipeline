@@ -109,5 +109,5 @@ output "github_actions_role_arn" {
 
 output "github_actions_setup" {
   description = "Instructions for setting up GitHub Actions with OIDC"
-  value = var.oidc_config.enable_github_oidc ? "Add to GitHub workflow: role-to-assume: ${aws_iam_role.github_actions[0].arn}, aws-region: ${var.aws_config.region}" : "OIDC not enabled - set oidc_config.enable_github_oidc = true"
+  value       = var.oidc_config.enable_github_oidc ? "Add to GitHub workflow: role-to-assume: ${aws_iam_role.github_actions[0].arn}, aws-region: ${var.aws_config.region}" : "OIDC not enabled - set oidc_config.enable_github_oidc = true"
 }

@@ -5,9 +5,9 @@
 variable "oidc_config" {
   description = "OIDC provider configuration for GitHub Actions"
   type = object({
-    github_org          = string
-    github_repo         = string
-    enable_github_oidc  = bool
+    github_org         = string
+    github_repo        = string
+    enable_github_oidc = bool
   })
 }
 

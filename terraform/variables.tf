@@ -15,8 +15,8 @@ variable "ami_config" {
 variable "ssh_config" {
   description = "SSH configuration"
   type = object({
-    key_name         = string
-    allowed_cidr     = list(string)
+    key_name     = string
+    allowed_cidr = list(string)
   })
 }
 

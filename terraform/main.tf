@@ -18,11 +18,25 @@ data "aws_vpc" "default" {
   default = true
 }
 
+# Data source to get subnets in the default VPC
+data "aws_subnets" "default" {
+  filter {
+    name   = "vpc-id"
+    values = [data.aws_vpc.default.id]
+  }
+}
+
+# Get the first available subnet
+data "aws_subnet" "selected" {
+  id = data.aws_subnets.default.ids[0]
+}
+
 # Jenkins Server (Combined with K8s Master based on PDF diagram)
 resource "aws_instance" "jenkins_k8s_master" {
   ami           = var.ami_config.id
   instance_type = var.instance_types.master
   key_name      = var.ssh_config.key_name
+  subnet_id     = data.aws_subnet.selected.id
   vpc_security_group_ids = [
     aws_security_group.jenkins_sg.id,
     aws_security_group.k8s_master_sg.id
@@ -50,6 +64,7 @@ resource "aws_instance" "k8s_worker_1" {
   ami                    = var.ami_config.id
   instance_type          = var.instance_types.worker
   key_name               = var.ssh_config.key_name
+  subnet_id              = data.aws_subnet.selected.id
   vpc_security_group_ids = [aws_security_group.k8s_worker_sg.id]
 
   iam_instance_profile = var.iam_config.enable_instance_profiles ? aws_iam_instance_profile.k8s_worker[0].name : null
@@ -79,6 +94,7 @@ resource "aws_instance" "k8s_worker_2" {
   ami                    = var.ami_config.id
   instance_type          = var.instance_types.worker
   key_name               = var.ssh_config.key_name
+  subnet_id              = data.aws_subnet.selected.id
   vpc_security_group_ids = [aws_security_group.k8s_worker_sg.id]
 
   iam_instance_profile = var.iam_config.enable_instance_profiles ? aws_iam_instance_profile.k8s_worker[0].name : null
@@ -108,6 +124,7 @@ resource "aws_instance" "nexus_sonarqube" {
   ami                    = var.ami_config.id
   instance_type          = var.instance_types.master
   key_name               = var.ssh_config.key_name
+  subnet_id              = data.aws_subnet.selected.id
   vpc_security_group_ids = [aws_security_group.tools_sg.id]
 
   root_block_device {
@@ -131,6 +148,7 @@ resource "aws_instance" "monitoring" {
   ami                    = var.ami_config.id
   instance_type          = var.instance_types.monitoring
   key_name               = var.ssh_config.key_name
+  subnet_id              = data.aws_subnet.selected.id
   vpc_security_group_ids = [aws_security_group.monitoring_sg.id]
 
   root_block_device {
