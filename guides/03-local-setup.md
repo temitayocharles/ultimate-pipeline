@@ -231,10 +231,8 @@ drwxr-xr-x   guides/
 drwxr-xr-x   kubernetes/
 drwxr-xr-x   terraform/
 -r--------   k8s-pipeline-key.pem
--rw-r--r--   COMPATIBILITY.md
--rw-r--r--   FIXES-APPLIED.md
--rw-r--r--   PROJECT-README.md
--rw-r--r--   SETUP-GUIDE.md
+-rw-r--r--   README.md
+-rw-r--r--   .github-workflow-example.yml
 ```
 
 

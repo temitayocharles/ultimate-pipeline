@@ -296,10 +296,12 @@ nslookup jenkins-k8s-master.ultimate-cicd-devops.local
 
 ## 📚 Additional Documentation
 
-- **ARCHITECTURE.md** - Deep dive into architecture decisions
+## Related Documentation
+
+- **ARCHITECTURE.md** - System design and architecture
 - **QUICKREF.md** - Command reference and troubleshooting
-- **../SETUP-GUIDE.md** - Complete deployment walkthrough
-- **../COMPATIBILITY.md** - Application compatibility analysis
+- **../guides/00-START-HERE.md** - Complete step-by-step setup guides
+- **../docs/QUICK-REFERENCE.md** - Quick reference card
 
 ## 🎯 Best Practices
 
@@ -363,11 +365,11 @@ Installation scripts in `scripts/` are templated by Terraform:
 
 After successful deployment:
 
-1. Follow **../SETUP-GUIDE.md** for service configuration
-2. Initialize Kubernetes cluster
-3. Configure Jenkins pipeline
-4. Deploy sample application
-5. Monitor with Prometheus/Grafana
+1. Follow **../guides/00-START-HERE.md** for complete setup walkthrough
+2. Initialize Kubernetes cluster (see guide 05-kubernetes-setup.md)
+3. Configure Jenkins pipeline (see guide 06-jenkins-setup.md)
+4. Deploy sample application (see guide 09-pipeline-setup.md)
+5. Monitor with Prometheus/Grafana (see guide 10-verification.md)
 
 ---
 
