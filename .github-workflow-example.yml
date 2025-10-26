@@ -1,0 +1,54 @@
+# Example GitHub Actions Workflow with OIDC
+# This demonstrates passwordless authentication to AWS
+
+name: Deploy to Infrastructure
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write   # Required for OIDC
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}  # Get from terraform output: github_actions_role_arn
+          aws-region: us-east-1
+          
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build and push Docker image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REPOSITORY: your-app-name
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+      - name: Deploy to Kubernetes
+        run: |
+          # Example: Update kubectl config to connect to your K8s cluster
+          # kubectl set image deployment/your-app your-app=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+# Setup Instructions:
+# 1. Run terraform apply to create infrastructure
+# 2. Get the GitHub Actions role ARN from terraform output
+# 3. Add AWS_ROLE_ARN to your GitHub repository secrets
+# 4. Update this workflow with your actual ECR repository name
+# 5. Commit and push - no AWS access keys needed!
