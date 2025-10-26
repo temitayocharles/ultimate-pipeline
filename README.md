@@ -2,10 +2,10 @@
 
 A complete production-grade CI/CD pipeline for deploying a Java Spring Boot application on AWS using Jenkins, Kubernetes, Docker, SonarQube, Nexus, and comprehensive monitoring.
 
-**Status:** ✅ Tested and Working | **Last Updated:** October 25, 2025
+**Status:** Tested and Working | **Last Updated:** October 25, 2025
 
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Features](#features)
@@ -38,26 +38,26 @@ This project provides a **complete, automated CI/CD pipeline** running on AWS in
 ## Features
 
 ### Infrastructure
-✅ **Infrastructure as Code** - Complete Terraform configuration with object-based variables  
-✅ **Kubernetes v1.31** - Latest stable Kubernetes cluster (1 master + 2 workers)  
-✅ **Service Discovery** - AWS Cloud Map DNS for internal service communication  
-✅ **OIDC Authentication** - GitHub Actions can deploy without AWS credentials  
-✅ **IAM Instance Profiles** - EC2 instances access AWS services securely  
-✅ **Automated Setup** - All services installed via cloud-init scripts  
-✅ **Cost Controls** - Toggle optional instances to save money  
+**Infrastructure as Code** - Complete Terraform configuration with object-based variables  
+**Kubernetes v1.31** - Latest stable Kubernetes cluster (1 master + 2 workers)  
+**Service Discovery** - AWS Cloud Map DNS for internal service communication  
+**OIDC Authentication** - GitHub Actions can deploy without AWS credentials  
+**IAM Instance Profiles** - EC2 instances access AWS services securely  
+**Automated Setup** - All services installed via cloud-init scripts  
+**Cost Controls** - Toggle optional instances to save money  
 
 ### CI/CD Pipeline
-✅ **Automated Builds** - Git commit triggers full pipeline  
-✅ **Code Quality** - SonarQube analysis with quality gates  
-✅ **Security Scanning** - Trivy scans Docker images for vulnerabilities  
-✅ **Artifact Storage** - Maven artifacts stored in Nexus  
-✅ **Container Registry** - Docker images pushed to Docker Hub/ECR  
-✅ **Auto-Deployment** - Kubernetes deployment with health verification  
+**Automated Builds** - Git commit triggers full pipeline  
+**Code Quality** - SonarQube analysis with quality gates  
+**Security Scanning** - Trivy scans Docker images for vulnerabilities  
+**Artifact Storage** - Maven artifacts stored in Nexus  
+**Container Registry** - Docker images pushed to Docker Hub/ECR  
+**Auto-Deployment** - Kubernetes deployment with health verification  
 
 ### Monitoring
-✅ **Metrics Collection** - Prometheus scrapes system and application metrics  
-✅ **Visualization** - Grafana dashboards for infrastructure and K8s  
-✅ **Alerting** - Prometheus alert rules (customizable)  
+**Metrics Collection** - Prometheus scrapes system and application metrics  
+**Visualization** - Grafana dashboards for infrastructure and K8s  
+**Alerting** - Prometheus alert rules (customizable)  
 
 
 ## Quick Start
@@ -106,7 +106,7 @@ Create Jenkins pipeline job pointing to `ci-cd/Jenkinsfile` and trigger build.
 
 ## Documentation
 
-### 📖 Getting Started Guides
+### Getting Started Guides
 
 **Start here for hands-on learning:**
 
@@ -128,7 +128,7 @@ guides/
 **[→ Start with the guides](guides/00-START-HERE.md)**
 
 
-### 📚 Reference Documentation
+### Reference Documentation
 
 - **[Quick Reference](docs/QUICK-REFERENCE.md)** - Commands, URLs, credentials cheat sheet
 - **[Terraform Infrastructure](terraform/README.md)** - Infrastructure details and configuration
@@ -482,4 +482,4 @@ This project is for educational and demonstration purposes.
 
 ---
 
-**Made for DevOps learning and practice** | **Status:** ✅ Tested and Working
+**Made for DevOps learning and practice** | **Status:** Tested and Working

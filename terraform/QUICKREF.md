@@ -25,7 +25,7 @@
 ## Key Customization Points
 
 **terraform.auto.tfvars:**
-- `ssh_config.key_name` - Your AWS SSH key pair name ⚠️ REQUIRED
+- `ssh_config.key_name` - Your AWS SSH key pair name REQUIRED
 - `ssh_config.allowed_cidr` - Your IP for SSH access (security)
 - `ami_config.id` - Verify for your region
 - `oidc_config.github_org/repo` - If using GitHub Actions

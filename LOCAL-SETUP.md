@@ -1,6 +1,6 @@
 # Local Development Setup
 
-> 📝 **Note:** This guide explains how to work with your personal AWS configuration while keeping sensitive data out of the public repository.
+> **Note:** This guide explains how to work with your personal AWS configuration while keeping sensitive data out of the public repository.
 
 ---
 
@@ -220,20 +220,20 @@ terraform init
 
 These files are safe to commit and push:
 
-- ✅ `terraform/backend.tf` (with placeholders)
-- ✅ `BACKEND-SETUP.md` (generic instructions)
-- ✅ All guides with example data
-- ✅ `.gitignore` (with personal file exclusions)
+- `terraform/backend.tf` (with placeholders)
+- `BACKEND-SETUP.md` (generic instructions)
+- All guides with example data
+- `.gitignore` (with personal file exclusions)
 
 ### Never Share (Personal)
 
 These files should NEVER be committed:
 
-- ❌ `terraform/backend.tf.personal`
-- ❌ `BACKEND-SETUP.personal.md`
-- ❌ Any file with your actual AWS credentials
-- ❌ Files with your AWS account ID
-- ❌ Files with your S3 bucket names
+- `terraform/backend.tf.personal`
+- `BACKEND-SETUP.personal.md`
+- Any file with your actual AWS credentials
+- Files with your AWS account ID
+- Files with your S3 bucket names
 
 ---
 
@@ -274,10 +274,10 @@ echo "terraform/backend.tf.personal" >> .gitignore
 
 ## Summary
 
-✅ **Keep Separate:** Template files (public) vs Personal files (local)  
-✅ **Use .personal suffix:** For all sensitive configurations  
-✅ **Always verify:** Check git status before pushing  
-✅ **Follow workflow:** Copy personal → work → restore template → commit  
-✅ **Protected by .gitignore:** Personal files can't be accidentally committed
+**Keep Separate:** Template files (public) vs Personal files (local)  
+**Use .personal suffix:** For all sensitive configurations  
+**Always verify:** Check git status before pushing  
+**Follow workflow:** Copy personal → work → restore template → commit  
+**Protected by .gitignore:** Personal files can't be accidentally committed
 
 **Remember:** Your `.personal` files contain YOUR AWS resources. The template files help others set up THEIR resources.

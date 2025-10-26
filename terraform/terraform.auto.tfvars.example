@@ -12,7 +12,7 @@ ami_config = {
 }
 
 # SSH Configuration
-# ⚠️ IMPORTANT: Update these values!
+# IMPORTANT: Update these values!
 ssh_config = {
   key_name     = "k8s-pipeline-key"  # Your AWS EC2 key pair name
   allowed_cidr = ["YOUR_IP/32"]      # Replace with your IP: curl ifconfig.me
@@ -41,7 +41,7 @@ feature_flags = {
 
 # OIDC Configuration for GitHub Actions
 # This enables passwordless authentication from GitHub Actions to AWS
-# ⚠️ IMPORTANT: Update with your GitHub details!
+# IMPORTANT: Update with your GitHub details!
 oidc_config = {
   github_org         = "YOUR_GITHUB_USERNAME"  # Your GitHub username
   github_repo        = "YOUR_REPO_NAME"        # Your repository name

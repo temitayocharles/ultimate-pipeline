@@ -2,7 +2,7 @@
 
 This directory contains Terraform configuration for deploying a complete CI/CD infrastructure on AWS.
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 terraform/
@@ -24,7 +24,7 @@ terraform/
     └── monitoring-setup.sh
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
 ### 1. Prerequisites
 
@@ -63,7 +63,7 @@ terraform apply
 terraform output
 ```
 
-## 🏗️ Infrastructure Components
+## Infrastructure Components
 
 ### EC2 Instances
 
@@ -83,7 +83,7 @@ terraform output
 - **AWS Cloud Map** - Service discovery
 - **IAM** - OIDC provider, roles, instance profiles
 
-## 🔐 Security Features
+## Security Features
 
 ### OIDC Authentication
 
@@ -111,7 +111,7 @@ EC2 instances have IAM roles with permissions for:
 - Monitoring: Prometheus (9090), Grafana (3000)
 - Kubernetes: API server (6443), node communication
 
-## 🗺️ Service Discovery
+## Service Discovery
 
 AWS Cloud Map provides DNS-based service discovery:
 
@@ -128,7 +128,7 @@ monitoring.ultimate-cicd-devops.local
 - Automatic DNS updates
 - Works across VPC
 
-## 💰 Cost Optimization
+## Cost Optimization
 
 ### Feature Flags
 
@@ -152,7 +152,7 @@ feature_flags = {
 
 **For Learning:** Use `terraform destroy` after each session!
 
-## 📋 Common Commands
+## Common Commands
 
 ### Initialize & Deploy
 
@@ -194,7 +194,7 @@ terraform apply   # Apply changes
 terraform destroy  # Remove all resources
 ```
 
-## 🔧 Post-Deployment Configuration
+## Post-Deployment Configuration
 
 ### 1. Initialize Kubernetes
 
@@ -231,7 +231,7 @@ http://<JENKINS_IP>:8080
 
 See **SETUP-GUIDE.md** in parent directory for complete configuration steps.
 
-## 📊 Outputs
+## Outputs
 
 Terraform provides these outputs:
 
@@ -255,7 +255,7 @@ Terraform provides these outputs:
 ### OIDC
 - `github_actions_role_arn` - Role ARN for GitHub Actions
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Issue: `terraform apply` fails
 
@@ -294,7 +294,7 @@ nslookup jenkins-k8s-master.ultimate-cicd-devops.local
 
 **This is non-breaking** - AWS Cloud Map still works, they're just updating the API.
 
-## 📚 Additional Documentation
+## Additional Documentation
 
 ## Related Documentation
 
@@ -303,7 +303,7 @@ nslookup jenkins-k8s-master.ultimate-cicd-devops.local
 - **../guides/00-START-HERE.md** - Complete step-by-step setup guides
 - **../docs/QUICK-REFERENCE.md** - Quick reference card
 
-## 🎯 Best Practices
+## Best Practices
 
 ### Development Workflow
 
@@ -315,21 +315,21 @@ nslookup jenkins-k8s-master.ultimate-cicd-devops.local
 
 ### Security
 
-- ✅ Use specific CIDR for SSH (`YOUR_IP/32`)
-- ✅ Enable instance profiles for EC2-to-AWS access
-- ✅ Use OIDC for GitHub Actions (no stored credentials)
-- ✅ Rotate SSH keys periodically
-- ✅ Use security groups to restrict access
+- Use specific CIDR for SSH (`YOUR_IP/32`)
+- Enable instance profiles for EC2-to-AWS access
+- Use OIDC for GitHub Actions (no stored credentials)
+- Rotate SSH keys periodically
+- Use security groups to restrict access
 
 ### Cost Management
 
-- ✅ Use feature flags to disable unused services
-- ✅ Run `terraform destroy` after learning sessions
-- ✅ Use `t3.medium` instead of larger instances
-- ✅ Monitor AWS billing dashboard
-- ✅ Set up billing alerts in AWS
+- Use feature flags to disable unused services
+- Run `terraform destroy` after learning sessions
+- Use `t3.medium` instead of larger instances
+- Monitor AWS billing dashboard
+- Set up billing alerts in AWS
 
-## 🔄 Updates & Maintenance
+## Updates & Maintenance
 
 ### Updating Terraform
 
@@ -353,7 +353,7 @@ Installation scripts in `scripts/` are templated by Terraform:
 - Run `terraform apply` to update user_data
 - **Note:** Changes only apply to new instances
 
-## 📝 Notes
+## Notes
 
 - **Default VPC**: Using AWS default VPC for simplicity
 - **Ubuntu 24.04 LTS**: Specified in `terraform.auto.tfvars`
@@ -361,7 +361,7 @@ Installation scripts in `scripts/` are templated by Terraform:
 - **OIDC**: Optional, can be disabled
 - **Remote State**: Backend config exists but commented out
 
-## 🚀 Next Steps
+## Next Steps
 
 After successful deployment:
 

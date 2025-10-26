@@ -156,10 +156,10 @@ pipeline {
             cleanWs()
         }
         success {
-            echo '✅ Pipeline succeeded! Application deployed successfully.'
+            echo 'SUCCESS: Pipeline succeeded! Application deployed successfully.'
         }
         failure {
-            echo '❌ Pipeline failed. Check logs for details.'
+            echo 'ERROR: Pipeline failed. Check logs for details.'
         }
     }
 }
