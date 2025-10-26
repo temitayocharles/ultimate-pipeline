@@ -39,6 +39,7 @@ This project provides a **complete, automated CI/CD pipeline** running on AWS in
 
 ### Infrastructure
 ✅ **Infrastructure as Code** - Complete Terraform configuration with object-based variables  
+✅ **Kubernetes v1.31** - Latest stable Kubernetes cluster (1 master + 2 workers)  
 ✅ **Service Discovery** - AWS Cloud Map DNS for internal service communication  
 ✅ **OIDC Authentication** - GitHub Actions can deploy without AWS credentials  
 ✅ **IAM Instance Profiles** - EC2 instances access AWS services securely  

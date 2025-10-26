@@ -68,7 +68,7 @@ jenkins-k8s-master
 
 **Expected output (this takes 2-3 minutes):**
 ```
-[init] Using Kubernetes version: v1.28.1
+[init] Using Kubernetes version: v1.31.x
 [preflight] Running pre-flight checks
 [kubelet-start] Writing kubelet environment file
 [certs] Generating certificates and keys
